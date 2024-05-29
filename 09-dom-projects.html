@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dom Projects</title>
+    <link rel="shortcut icon" href="#">
+  </head>
+  <body>
+      <p>YouTube Subscribe Button</p>
+      <button id="sub" onclick="subPressed()">Subscribe</button>
+      
+      <p>Rock Paper Scissors</p>
+      <a href="/09-rock-paper-scissors.html">Click here</a>
+      
+      <p>Amazon Shipping Calculator</p>
+      <p>Orders under $40 = +$10 shipping. </p>
+      <p>Orders over $40 = FREE shipping. </p>
+      <input type="text" onkeydown="handleKeyDown(event)" 
+      class="js-cost-input" name="costInput" placeholder="Cost of order">
+      <button onclick="calculate()">Calculate</button><br>
+      <p class="total"></p>
+      
+      <script>
+        let subscribed = false;
+
+        function handleKeyDown(event) {
+          if (event.key === 'Enter') {
+        calculate()
+        }
+        };
+
+        function subPressed(){ 
+          if (!subscribed){
+            document.getElementById('sub').innerHTML = 'Subscribed'
+            subscribed = true;
+          } else {
+            document.querySelector("#sub").innerHTML = 'Subscribe'
+            //document.getElementById('sub').innerHTML = 'Subscribe'
+            subscribed = false;
+          };
+        };
+
+        function calculate(){
+          let result = '';
+          const inputElement = document.querySelector('.js-cost-input');
+          const cost = Number(inputElement.value);
+          if (cost >= 40) {
+            result = `Total = \$${cost}`
+          } else {
+            result = `Total = \$${cost + 10}`
+          }
+          document.querySelector('.total').innerHTML = result;
+          console.log(result);
+          };
+
+      </script>
+  </body>
