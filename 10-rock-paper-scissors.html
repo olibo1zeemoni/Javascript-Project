@@ -64,10 +64,11 @@
         <span class="emoji">✌️</span></button>
 
       <p class="js-result result"></p>
-      <p class="js-move">
-        <span class="emoji">
 
-        </span>
+      <p>
+        <span class="move-user"></span>
+        <span class="js-emoji emoji">  </span>
+        <span class="move-computer"></span>
       </p>
 
       <p class="js-score score"></p>
@@ -115,16 +116,19 @@
             result = 'Tie.';
           } else if (button === paper && computerMove === rock || button === scissors && computerMove === paper || button === rock && computerMove === scissors) {
             score.wins += 1;
-            result = 'You Win.';
+            result = 'You win.';
           } else if (button === rock && computerMove === paper || button === paper && computerMove === scissors || button === scissors && computerMove === rock){
             score.losses += 1;
-            result = 'You Loss.';
+            result = 'You lose.';
           }
 
           localStorage.setItem('score', JSON.stringify(score));
           updateScoreElement();
           document.querySelector('.js-result').innerHTML = result;
-          document.querySelector('.js-move').innerHTML = `You ${button}  ${computerMove} Computer`;
+          document.querySelector('.move-user').innerHTML = 'You';
+          document.querySelector('.move-computer').innerHTML = 'Computer';
+          document.querySelector('.js-emoji').innerHTML = `${button}  ${computerMove}`;
+
 
           // alert(`You picked ${button}. Computer picked ${computerMove}. ${result} \nWins: ${score.wins}, Draws: ${score.draws}, Losses: ${score.losses}`);
         };
