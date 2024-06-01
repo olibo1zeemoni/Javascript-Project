@@ -1,0 +1,17 @@
+p{
+  font-family: Arial;
+  font-size: 16px;
+}
+
+.practice-list-title2{
+  margin-top: 50px;
+}
+
+.todo-list{
+  margin-top: 50px;
+}
+
+.todo-grid {
+  display: grid;
+  grid-template-columns: 200px 150px 100px;
+}
