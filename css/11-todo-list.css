@@ -11,7 +11,42 @@ p{
   margin-top: 50px;
 }
 
-.todo-grid {
+.todo-input-grid,
+.todo-grid
+ {
   display: grid;
   grid-template-columns: 200px 150px 100px;
+  column-gap: 10px;
+  row-gap: 10px;
+  align-items: center;
 }
+
+.todo-input-grid {
+  margin-bottom: 10px;
+  align-items: stretch;
+}
+
+.name-input,
+.due-data-input {
+  font-size: 15px;
+  padding: 6px;
+}
+
+.add-button3 {
+background-color: green;
+border: none;
+color: white;
+font-size: 15px;
+cursor: pointer;
+}
+
+.delete-todo-button {
+  background-color: darkred;
+  border: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+} 

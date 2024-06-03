@@ -5,6 +5,7 @@ const todoList3 = [{
   date: '31-05-2024'
 }];
 
+renderTodoList();
 
 function addTodo(){
   const inputElement = document.querySelector('.js-name-input');
@@ -37,7 +38,7 @@ function addTodo3(){
   const name = inputNameElement.value;
   const inputDateElement = document.querySelector('.js-todo-date');
   const date = inputDateElement.value;
-  if (name.length < 3) {
+  if (name.length && !isNaN(date)) {
     return;
 }; 
 todoList3.push({
@@ -57,14 +58,13 @@ function renderTodoList(){
     const todoObject = todoList3[i];
     const {name, date} = todoObject;
     const html = `
-    <p>
-    ${name}  ${date} 
-    <button onclick="
+    <div> ${name} </div>
+    <div> ${date} </div>
+    <button onclick=" 
     todoList3.splice(${i}, 1);
-    renderTodoList();
-    "
+    renderTodoList();"
+    class="delete-todo-button"
     >Delete</button>
-    </p>
     `;
     todoListHtml += html;
     document.querySelector('.js-todo-list3').innerHTML = todoListHtml;
