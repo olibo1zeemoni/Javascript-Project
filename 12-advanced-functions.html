@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="#">
+    <title>
+      Advanced Functions
+    </title>
+  </head>
+  <body>
+
+    <script>
+      function run(param) {
+        param()
+      };
+
+      run( function() {
+        console.log('hello world')
+      }
+
+      );
+
+      function someFunc(){
+        console.log('another function')
+      };
+
+
+     setTimeout(setTimeout(someFunc,5000),5000);
+    </script>
+  </body>
+</html>
