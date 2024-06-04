@@ -11,16 +11,23 @@ let score = JSON.parse(localStorage.getItem('score')) ||
 // console.log(localStorage.getItem('score'));
 
 updateScoreElement();
+let intervalId 
 
 function autoplay() {
   if(!isAutoPlaying){
-    let computerMove = pickComputerMove();
-    setInterval(buttonTapped(computerMove),2000);
+    
+    intervalId = setInterval(()=>{
+      const playerMove = pickComputerMove();
+      buttonTapped(playerMove);
+    },2000);
     isAutoPlaying = true;
-} else {
-  //clearInterval();
-  //isAutoPlaying = false;
-}};
+
+  } else {
+    clearInterval(intervalId);
+    isAutoPlaying = false;
+  }
+}
+
 
 function updateScoreElement() {
   document.querySelector('.js-score').innerHTML = `Wins: ${score.wins}, Ties: ${score.draws}, Losses: ${score.losses}`;
@@ -86,7 +93,7 @@ function resetScore() {
   localStorage.removeItem('score');
   updateScoreElement();
   document.querySelector('.js-result').innerHTML = '';
-  document.querySelector('.js-move').innerHTML = '';
+  document.querySelector('.js-emoji').innerHTML = '';
 };
 
 const jsonString = JSON.stringify(product);

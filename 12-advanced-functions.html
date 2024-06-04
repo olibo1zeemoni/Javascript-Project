@@ -24,7 +24,23 @@
       };
 
 
-     setTimeout(setTimeout(someFunc,5000),5000);
+     //setTimeout(setTimeout(someFunc,5000),5000);
+
+     let array = ['wash dish', 'iron cloth','make bed', 'wash dish'];
+     array.forEach(function(value,index){
+      if(value === 'iron cloth') {
+        return;
+      }
+      console.log(value);
+     })
+     
+    //  for(let i=0; i<array.length; i++){
+    //   if(array[i] === 'iron cloth') {
+    //     continue;
+    //  }
+    //  console.log(array[i]);
+    // }
+
     </script>
   </body>
 </html>
