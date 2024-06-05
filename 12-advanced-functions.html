@@ -7,20 +7,33 @@
     </title>
   </head>
   <body>
+    <button class="js-button">Click me</button>
 
     <script>
+      const buttonElement = document.querySelector('.js-button');
+      buttonElement.addEventListener('click', () => {
+        console.log('Button clicked');
+      });
+
+      buttonElement.addEventListener('click',someFunc);
+      buttonElement.removeEventListener('click',someFunc);
+
       function run(param) {
         param()
       };
 
-      run( function() {
+      run( () => {
         console.log('hello world')
       }
 
       );
 
       function someFunc(){
-        console.log('another function')
+        console.log('some function')
+      };
+
+      function thirdFunc(){
+        //console.log('third function')
       };
 
 
@@ -31,15 +44,18 @@
       if(value === 'iron cloth') {
         return;
       }
-      console.log(value);
+      //skips one iteration like continue in a for loop.
+      //console.log(value);
      })
      
     //  for(let i=0; i<array.length; i++){
     //   if(array[i] === 'iron cloth') {
-    //     continue;
+    //     continue; 
     //  }
     //  console.log(array[i]);
     // }
+
+
 
     </script>
   </body>

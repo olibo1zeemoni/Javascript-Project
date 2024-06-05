@@ -45,7 +45,33 @@ function pickComputerMove() {
     computerMove = scissors;
   }
   return computerMove;
-}
+};
+
+const rockButtonElement = document.querySelector('.js-rock-button');
+rockButtonElement.addEventListener('click',()=> {
+  buttonTapped(rock)
+});
+
+document.body.addEventListener('keydown',(event)=> {
+  if(event.key === "r"){
+    buttonTapped(rock)
+  } else if (event.key === "p"){
+    buttonTapped(paper)
+  } else if(event.key === "s"){
+    buttonTapped(scissors)
+  }
+});
+
+const paperButtonElement = document.querySelector('.js-paper-button');
+paperButtonElement.addEventListener('click',()=> {
+  buttonTapped(paper)
+});
+
+const scissorsButtonElement = document.querySelector('.js-scissors-button');
+scissorsButtonElement.addEventListener('click',()=> {
+  buttonTapped(scissors)
+});
+
 
 
 function buttonTapped(button) {
